@@ -30,6 +30,7 @@ public class PessoaController {
 	@Autowired
 	private PessoaManager pessoaManager;
 	
+
 	@PostMapping
 	public ResponseEntity<Long> createPessoa(@Valid @RequestBody PessoaReq req) {
 		Pessoa pessoa = pessoaManager.createPessoa(req);

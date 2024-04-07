@@ -1,6 +1,7 @@
 package br.com.sgci.controller.schema;
 
 public record EnderecoResponse(
+	Long id,
 	String cep,
 	String estado,
 	String cidade,
