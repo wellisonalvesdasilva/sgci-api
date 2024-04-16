@@ -70,6 +70,10 @@ public class PessoaManager {
 			
 			List<Predicate> condicoes = new ArrayList<>();
 			
+			if (filtros.getId() != null) {
+				condicoes.add(cb.equal(root.get("id"), filtros.getId()));
+			}
+			
 			if (filtros.getNome() != null) {
 				condicoes.add(cb.like(root.get("nome"), "%" + filtros.getNome() + "%"));
 			}
@@ -94,6 +98,14 @@ public class PessoaManager {
 				condicoes.add(cb.equal(root.get("documento"), filtros.getDocumento()));
 			}
 			
+			if (filtros.getProfissao() != null) {
+				condicoes.add(cb.equal(root.get("profissao"), filtros.getProfissao()));
+			}
+			
+			if (filtros.getEstadoCivil() != null) {
+				condicoes.add(cb.equal(root.get("estadoCivil"), filtros.getEstadoCivil()));
+			}
+
 			return cb.and(condicoes.toArray(Predicate[]::new));
 		};
 		
@@ -107,7 +119,7 @@ public class PessoaManager {
 			listResponse.add(pessoaResponse);
 		});
 		
-		return new ResponsePagedCommom<PessoaResponse>(listResponse, listPessoaBd.getTotalElements(), listPessoaBd.getTotalPages(), filtros.getSize());
+		return new ResponsePagedCommom<PessoaResponse>(listResponse, listPessoaBd.getTotalElements(), listPessoaBd.getTotalPages(), filtros.getSize(), filtros.getPage());
 		
 	}
 

@@ -4,12 +4,15 @@ import br.com.sgci.model.TipoPessoaEnum;
 
 public class PessoaFilter extends FilterPageable {
 
+	public Long id;
 	public String nome;
 	public String cep;
 	public String estado;
 	public String cidade;
+	public String profissao;
 	public TipoPessoaEnum tipo;
 	public String documento;
+	public String estadoCivil;
 
 	public String getNome() {
 		return nome;
@@ -59,4 +62,29 @@ public class PessoaFilter extends FilterPageable {
 		this.documento = documento;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getProfissao() {
+		return profissao;
+	}
+
+	public void setProfissao(String profissao) {
+		this.profissao = profissao;
+	}
+
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+
+	
 }
